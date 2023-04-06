@@ -4,7 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TextTV API</title>
+    <title>Allsvenskan</title>
+    <link rel="stylesheet" href="./styles.css"> <!-- Include the CSS file from the 'css' folder -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script>
         const pc = {
             name: "Philip",
@@ -168,64 +172,88 @@
             renderData(dataArray)
         }
 
-    function renderData(dataArray) {
-        const container = document.getElementById('data-container');
+        // Function to add class based on content
+        function addClassByContent(element) {
+            const content = element.textContent;
+            if (content === '3') {
+                element.classList.add('green-3');
+            } else if (content === '2') {
+                element.classList.add('green-2');
+            } else if (content === '1') {
+                element.classList.add('green-1');
+            }
+        }
+        
+        function renderData(dataArray) {
+            const container = document.getElementById('data-container');
 
-        const table = document.createElement('table');
-        table.style.borderCollapse = 'collapse';
-        table.style.width = '100%';
+            const table = document.createElement('table');
+            table.style.borderCollapse = 'collapse';
+            table.style.width = '100%';
 
-        // Table header
-        const headerRow = document.createElement('tr');
-        const headers = ['Position', 'Lag', 'Philip', 'Poäng', 'Lucas', 'Poäng', 'Håkan', 'Poäng'];
-        headers.forEach(headerText => {
-            const th = document.createElement('th');
-            th.textContent = headerText;
-            headerRow.appendChild(th);
-        });
-        table.appendChild(headerRow);
+            // Table header
+            const headerRow = document.createElement('tr');
+            const headers = ['Position', 'Lag', 'Philip', 'Poäng', 'Lucas', 'Poäng', 'Håkan', 'Poäng'];
+            headers.forEach(headerText => {
+                const th = document.createElement('th');
+                th.textContent = headerText;
+                th.classList.add('block')
+                headerRow.appendChild(th);
+            });
+            table.appendChild(headerRow);
 
-        // Table data
-        dataArray.forEach((item, index) => {
-            const dataRow = document.createElement('tr');
+            // Table data
+            dataArray.forEach((item, index) => {
+                const dataRow = document.createElement('tr');
+                dataRow.classList.add(index % 2 === 0 ? 'even' : 'odd')
+                // dataRow.classList.add('block')
 
-            const position = document.createElement('td');
-            position.textContent = item.pos;
-            dataRow.appendChild(position);
+                const position = document.createElement('td');
+                position.textContent = item.pos;
+                position.classList.add('block')
+                dataRow.appendChild(position);
 
-            const teamName = document.createElement('td');
-            teamName.textContent = item.teamName;
-            dataRow.appendChild(teamName);
+                const teamName = document.createElement('td');
+                teamName.textContent = item.teamName;
+                teamName.classList.add('block')
+                dataRow.appendChild(teamName);
 
-            const pcTeamName = document.createElement('td');
-            pcTeamName.textContent = item.pcTeamName;
-            dataRow.appendChild(pcTeamName);
+                const pcTeamName = document.createElement('td');
+                pcTeamName.textContent = item.pcTeamName;
+                dataRow.appendChild(pcTeamName);
 
-            const pcRowPoint = document.createElement('td');
-            pcRowPoint.textContent = item.pcRowPoint;
-            dataRow.appendChild(pcRowPoint);
+                const pcRowPoint = document.createElement('td');
+                pcRowPoint.textContent = item.pcRowPoint;
+                dataRow.appendChild(pcRowPoint);
+                addClassByContent(pcRowPoint);
 
-            const lucTeamName = document.createElement('td');
-            lucTeamName.textContent = item.lucTeamName;
-            dataRow.appendChild(lucTeamName);
+                const lucTeamName = document.createElement('td');
+                lucTeamName.textContent = item.lucTeamName;
+                dataRow.appendChild(lucTeamName);
 
-            const lucRowPoint = document.createElement('td');
-            lucRowPoint.textContent = item.lucRowPoint;
-            dataRow.appendChild(lucRowPoint);
+                const lucRowPoint = document.createElement('td');
+                lucRowPoint.textContent = item.lucRowPoint;
+                dataRow.appendChild(lucRowPoint);
+                addClassByContent(lucRowPoint);
 
-            const hakTeamName = document.createElement('td');
-            hakTeamName.textContent = item.hakTeamName;
-            dataRow.appendChild(hakTeamName);
+                const hakTeamName = document.createElement('td');
+                hakTeamName.textContent = item.hakTeamName;
+                dataRow.appendChild(hakTeamName);
 
-            const hakRowPoint = document.createElement('td');
-            hakRowPoint.textContent = item.hakRowPoint;
-            dataRow.appendChild(hakRowPoint);
+                const hakRowPoint = document.createElement('td');
+                hakRowPoint.textContent = item.hakRowPoint;
+                dataRow.appendChild(hakRowPoint);
+                addClassByContent(hakRowPoint);
 
-            table.appendChild(dataRow);
-        });
+                for (let child of dataRow.children) {
+                    child.classList.add('block');
+                }
 
-        container.appendChild(table);
-    }
+                table.appendChild(dataRow);
+            });
+
+            container.appendChild(table);
+        }
 
         window.onload = main;
     </script>
