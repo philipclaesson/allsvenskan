@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Allsvenskan</title>
-    <link rel="stylesheet" href="./styles.css"> <!-- Include the CSS file from the 'css' folder -->
+    <!-- <link rel="stylesheet" href="./block-styles.css"> -->
+    <link rel="stylesheet" href="./texttv-styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -187,7 +188,7 @@
 
             // Table header
             const headerRow = document.createElement('tr');
-            const headers = ['Position', 'Lag', 'Philip', 'Lucas', 'Håkan'];
+            const headers = ['', '', 'Philip', 'Lucas', 'Håkan'];
             headers.forEach(headerText => {
                 const th = document.createElement('th');
                 th.textContent = headerText;
@@ -205,6 +206,7 @@
                 const position = document.createElement('td');
                 position.textContent = item.pos;
                 position.classList.add('block')
+                position.classList.add('position')
                 dataRow.appendChild(position);
 
                 const teamName = document.createElement('td');
@@ -241,7 +243,25 @@
                 table.appendChild(dataRow);
             });
 
+            function getCurrentDate() {
+                // Get the current date
+                const currentDate = new Date();
+
+                // Set the Swedish locale and formatting options
+                const options = {
+                    weekday: 'long',
+                    day: 'numeric',
+                    month: 'short',
+                    year: 'numeric'
+                };
+
+                // Format the date using toLocaleDateString with the Swedish locale and options
+                return currentDate.toLocaleDateString('sv-SE', options);
+            }
+
             container.appendChild(table);
+            const ttvDateElement = document.querySelector('.ttv-date');
+            ttvDateElement.textContent = getCurrentDate();
         }
 
         window.onload = main;
@@ -249,7 +269,16 @@
 </head>
 
 <body>
+    <div class="ttv-header">
+        <div class="ttv-page">343</div>
+        <div class="ttv-name">SVT Text</div>
+        <div class="ttv-date"></div>
+    </div>
+    <h1>FOTBOLL Allsvenskan</h1>
     <div id="data-container"></div>
+    <h1 class="ttv-footer">
+        Matcher på sida 344
+    </h1>
 </body>
 
 </html>
