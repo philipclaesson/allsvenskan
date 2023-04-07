@@ -100,7 +100,7 @@ body {
 
 .block:focus,
 .block:hover {
-    transform: translate(2px, 2px);
+    transform: translate(-2px, -2px);
 }
 
 .block:after {
