@@ -1,6 +1,7 @@
 .green-3 {
-    --block-background-color: #a8faa8;
-    /* Lighter green with more white */
+
+    --block-background-color: #74af74;
+    /* Darker green with more white */
 }
 
 .green-2 {
@@ -9,8 +10,8 @@
 }
 
 .green-1 {
-    --block-background-color: #74af74;
-    /* Darker green with more white */
+    --block-background-color: #a8faa8;
+    /* Lighter green with more white */
 }
 
 
