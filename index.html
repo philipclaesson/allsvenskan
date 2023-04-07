@@ -152,6 +152,7 @@
                 luc.result += getRowPoint(luc.tips[i], i, positionByTeam);
                 hak.result += getRowPoint(hak.tips[i], i, positionByTeam);
             }
+            // add an empty row
             dataArray.push({
                 pos: 'Poäng',
                 teamName: '',
@@ -212,17 +213,17 @@
                 dataRow.appendChild(teamName);
 
                 const pcTeamName = document.createElement('td');
-                pcTeamName.textContent = item.pcTeamName + ` (${item.pcRowPoint})`;
+                pcTeamName.textContent = item.pcTeamName + `${item.pcRowPoint ? ` (${item.pcRowPoint})` : '' }`;
                 dataRow.appendChild(pcTeamName);
                 addClassByContent(pcTeamName);
 
                 const lucTeamName = document.createElement('td');
-                lucTeamName.textContent = item.lucTeamName + ` (${item.lucRowPoint})`;
+                lucTeamName.textContent = item.lucTeamName + `${item.lucRowPoint ? ` (${item.lucRowPoint})` : '' }`;
                 dataRow.appendChild(lucTeamName);
                 addClassByContent(lucTeamName);
 
                 const hakTeamName = document.createElement('td');
-                hakTeamName.textContent = item.hakTeamName + ` (${item.hakRowPoint})`;
+                hakTeamName.textContent = item.hakTeamName + `${item.hakRowPoint ? ` (${ item.hakRowPoint })` : '' }`;
                 dataRow.appendChild(hakTeamName);
                 addClassByContent(hakTeamName);
 
