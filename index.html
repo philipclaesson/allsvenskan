@@ -153,7 +153,7 @@
                 hak.result += getRowPoint(hak.tips[i], i, positionByTeam);
             }
             dataArray.push({
-                pos: 'Total',
+                pos: 'Poäng',
                 teamName: '',
                 pcTeamName: '',
                 pcRowPoint: pc.result,
@@ -193,7 +193,7 @@
                 th.classList.add('block')
                 headerRow.appendChild(th);
             });
-            headerRow.classList.add('yellow-2')
+            headerRow.classList.add('blue')
             table.appendChild(headerRow);
 
             // Table data
@@ -231,7 +231,10 @@
                 }
                 if (index == 16) {
                     dataRow.classList.add('result')
-                    console.log(dataRow)
+                    console.log(dataRow.children)
+                    for (let child of dataRow.children) {
+                        child.textContent = child.textContent.replace('(', '').replace(')', '')
+                    }
                 }
 
                 table.appendChild(dataRow);

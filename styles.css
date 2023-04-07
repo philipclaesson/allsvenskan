@@ -1,21 +1,21 @@
 .green-3 {
-    --block-background-color: #339933;
-    /* Darker green with more white */
+    --block-background-color: #a8faa8;
+    /* Lighter green with more white */
 }
 
 .green-2 {
-    --block-background-color: #66cc66;
+    --block-background-color: #7ac87a;
     /* Medium green with more white */
 }
 
 .green-1 {
-    --block-background-color: #99ff99;
-    /* Lighter green with more white */
+    --block-background-color: #74af74;
+    /* Darker green with more white */
 }
 
 
-.yellow-2 {
-    --block-background-color: #ffcc66;
+.blue {
+    --block-background-color: #597ee2;
     /* Medium yellow */
 }
 
@@ -30,7 +30,7 @@
 }
 
 .result {
-    --block-background-color: #8b8d92;
+    --block-background-color: #a9acb3;
     /* Light gray with a stronger blue tint */
 }
 
