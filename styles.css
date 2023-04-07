@@ -47,6 +47,7 @@ body {
     --block-background-color: #fff;
     --block-accent-color: #00ae86;
     --block-shadow-color: #444;
+    background-color: #e0e3ed;
 }
 
 /* Basic block style */
