@@ -29,6 +29,11 @@
     /* Dark gray with a stronger blue tint */
 }
 
+.result {
+    --block-background-color: #8b8d92;
+    /* Light gray with a stronger blue tint */
+}
+
 .resultRow {
     font-weight: bold;
     color: white;
