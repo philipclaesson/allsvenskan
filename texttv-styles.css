@@ -19,6 +19,7 @@ table {
     width: 100%;
     background-color: #000;
     overflow-x: auto;
+    font-weight: normal;
 }
 
 /* Table header */
@@ -27,9 +28,7 @@ thead {
 }
 
 th {
-    font-weight: bold;
     text-align: center;
-    padding: .5vw;
 }
 
 /* table body */
@@ -38,18 +37,18 @@ tbody tr:nth-child(even) {
 }
 
 td {
-    padding: .5vw;
+    /* padding: .1vw; */
     text-align: center;
 }
 
 /* text-TV-styles */
 table {
-    line-height: 1.2;
+    /* line-height: 1.2; */
 }
 
 th,
 td {
-    padding: 6px 10px;
+    padding: .01em 10px;
     text-align: left;
 }
 
@@ -59,8 +58,6 @@ td {
 
 .ttv-header {
     display: flex;
-    /* justify-content: space-between; */
-    align-items: left;
     padding: 10px;
 }
 
