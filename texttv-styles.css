@@ -44,6 +44,7 @@ td {
 /* text-TV-styles */
 table {
     /* line-height: 1.2; */
+    table-layout: fixed;
 }
 
 th,
