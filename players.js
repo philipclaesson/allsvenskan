@@ -20,7 +20,8 @@ pc = new Player(
         'BP',
     ],
     ["Mackan"],
-    "Malmö"
+    "Malmö",
+    "Paco"
 );
 
 lc = new Player(
@@ -45,7 +46,8 @@ lc = new Player(
         'BP',
     ],
     ["Isaac Kiese Thelin"],
-    "Malmö"
+    "Malmö",
+    "Paco"
 );
 
 hc = new Player(
@@ -70,7 +72,8 @@ hc = new Player(
         'BP',
     ],
     [""],
-    "Malmö"
+    "Malmö",
+    "Paco"
 );
 
 lundh = new Player(
@@ -95,7 +98,8 @@ lundh = new Player(
         'BP',
     ],
     [""],
-    "Malmö"
+    "Malmö",
+    "Paco"
 );
 
 niva = new Player(
@@ -120,7 +124,8 @@ niva = new Player(
         'BP',
     ],
     [""],
-    "Malmö"
+    "Malmö",
+    "Paco"
 );
 
 bank = new Player(
@@ -145,7 +150,8 @@ bank = new Player(
         'BP',
     ],
     [""],
-    "Malmö"
+    "Malmö",
+    "Paco"
 );
 
 ai = new Player(
@@ -170,7 +176,8 @@ ai = new Player(
         'Gais'
     ],
     ["Nahir Besara", "Isaac Kiese Thelin"],
-    "Malmö"
+    "Malmö",
+    "Paco"
 );
 
 const players = [hc, lc, pc, lundh, niva, bank, ai];

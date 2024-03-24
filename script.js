@@ -1,15 +1,17 @@
 let positionByTeam = {}
 let familyOnly = true
 let halfwayLeader = "Malmö"
+let firedCoach = ""
 let topScorer = ""
 
 class Player {
-    constructor(name, type, table, topScorers, halfwayLeader) {
+    constructor(name, type, table, topScorers, halfwayLeader, firedCoach) {
         this.name = name;
         this.type = type;
         this.table = table;
         this.topScorers = topScorers;
         this.halfwayLeader = halfwayLeader;
+        this.firedCoach = firedCoach;
         this._tablePoints = -1;
     }
     points(positionByTeam, factTopScorer, factHalfwayLeader) {
@@ -29,10 +31,13 @@ class Player {
         return points
     }
     topScorerPoints() {
-        return this.topScorers.includes(topScorer) ? 3 : 0
+        return this.topScorers.includes(topScorer) ? 5 : 0
     }
     halfwayLeaderPoints() {
         return this.halfwayLeader === halfwayLeader ? 3 : 0
+    }
+    firedCoachPoints() {
+        return this.firedCoach === firedCoach ? 5 : 0
     }
     getHtml() {
         const div = document.createElement('div');
@@ -105,6 +110,21 @@ class Player {
         topScorerTr.appendChild(topScorerPointsTd);
         topScorerTr.classList.add(`green-${this.topScorerPoints()}`);
         tbody.appendChild(topScorerTr); // Append topScorerTr to tbody
+
+        const firedCoachTr = document.createElement('tr');
+        const firedCoachIdxTd = document.createElement('td');
+        firedCoachIdxTd.textContent = 'Sparkad tränare';
+        firedCoachTr.appendChild(firedCoachIdxTd);
+
+        const firedCoachTd = document.createElement('td');
+        firedCoachTd.textContent = this.firedCoach;
+        firedCoachTr.appendChild(firedCoachTd);
+
+        const firedCoachPointsTd = document.createElement('td');
+        firedCoachPointsTd.textContent = this.firedCoachPoints();
+        firedCoachTr.appendChild(firedCoachPointsTd);
+        firedCoachTr.classList.add(`green-${this.firedCoachPoints()}`);
+        tbody.appendChild(firedCoachTr); // Append firedCoachTr to tbody
         
         table.appendChild(tbody); // Append tbody to table
         const totalTr = document.createElement('tr');
