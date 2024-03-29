@@ -1,17 +1,17 @@
 let positionByTeam = {}
 let familyOnly = true
-let halfwayLeader = "Malmö"
+let halfwayLeader = ""
 let firedCoach = ""
 let topScorer = ""
 
 class Player {
-    constructor(name, type, table, topScorers, halfwayLeader, firedCoach) {
+    constructor(name, type, table, topScorers, halfwayLeader, firedCoaches) {
         this.name = name;
         this.type = type;
         this.table = table;
         this.topScorers = topScorers;
         this.halfwayLeader = halfwayLeader;
-        this.firedCoach = firedCoach;
+        this.firedCoaches = firedCoaches;
         this._tablePoints = -1;
     }
     points(positionByTeam, factTopScorer, factHalfwayLeader) {
@@ -31,13 +31,16 @@ class Player {
         return points
     }
     topScorerPoints() {
+        if (!familyOnly) return 0
         return this.topScorers.includes(topScorer) ? 5 : 0
     }
     halfwayLeaderPoints() {
+        if (!familyOnly) return 0
         return this.halfwayLeader === halfwayLeader ? 3 : 0
     }
-    firedCoachPoints() {
-        return this.firedCoach === firedCoach ? 5 : 0
+    firedCoachesPoints() {
+        if (!familyOnly) return 0
+        return this.firedCoaches.includes(firedCoach) ? 5 : 0
     }
     getHtml() {
         const div = document.createElement('div');
@@ -80,51 +83,52 @@ class Player {
             tr.classList.add(`green-${rowPoint}`);
             tbody.appendChild(tr); // Append tr to tbody
         }
+        if (familyOnly) {
+            const halfwayLeaderTr = document.createElement('tr');
+            const halfwayLeaderIdxTd = document.createElement('td');
+            halfwayLeaderIdxTd.textContent = 'Ledare halvvägs';
+            halfwayLeaderTr.appendChild(halfwayLeaderIdxTd);
 
-        const halfwayLeaderTr = document.createElement('tr');
-        const halfwayLeaderIdxTd = document.createElement('td');
-        halfwayLeaderIdxTd.textContent = 'Ledare halvvägs';
-        halfwayLeaderTr.appendChild(halfwayLeaderIdxTd);
+            const halfwayLeaderTd = document.createElement('td');
+            halfwayLeaderTd.textContent = this.halfwayLeader;
+            halfwayLeaderTr.appendChild(halfwayLeaderTd);
 
-        const halfwayLeaderTd = document.createElement('td');
-        halfwayLeaderTd.textContent = this.halfwayLeader;
-        halfwayLeaderTr.appendChild(halfwayLeaderTd);
+            const halfwayLeaderPointsTd = document.createElement('td');
+            halfwayLeaderPointsTd.textContent = this.halfwayLeaderPoints();
+            halfwayLeaderTr.appendChild(halfwayLeaderPointsTd);
+            halfwayLeaderTr.classList.add(`green-${this.halfwayLeaderPoints()}`);
+            tbody.appendChild(halfwayLeaderTr); // Append halfwayLeaderTr to tbody
 
-        const halfwayLeaderPointsTd = document.createElement('td');
-        halfwayLeaderPointsTd.textContent = this.halfwayLeaderPoints();
-        halfwayLeaderTr.appendChild(halfwayLeaderPointsTd);
-        halfwayLeaderTr.classList.add(`green-${this.halfwayLeaderPoints()}`);
-        tbody.appendChild(halfwayLeaderTr); // Append halfwayLeaderTr to tbody
+            const topScorerTr = document.createElement('tr');
+            const topScorerIdxTd = document.createElement('td');
+            topScorerIdxTd.textContent = 'Skytteliga';
+            topScorerTr.appendChild(topScorerIdxTd);
 
-        const topScorerTr = document.createElement('tr');
-        const topScorerIdxTd = document.createElement('td');
-        topScorerIdxTd.textContent = 'Skytteliga';
-        topScorerTr.appendChild(topScorerIdxTd);
+            const topScorerTd = document.createElement('td');
+            topScorerTd.textContent = this.topScorers.map(scorer => scorer.split(' ')[scorer.split(' ').length - 1]).join(', ');
+            topScorerTr.appendChild(topScorerTd);
 
-        const topScorerTd = document.createElement('td');
-        topScorerTd.textContent = this.topScorers.map(scorer => scorer.split(' ')[scorer.split(' ').length - 1]).join(', ');
-        topScorerTr.appendChild(topScorerTd);
+            const topScorerPointsTd = document.createElement('td');
+            topScorerPointsTd.textContent = this.topScorerPoints();
+            topScorerTr.appendChild(topScorerPointsTd);
+            topScorerTr.classList.add(`green-${this.topScorerPoints()}`);
+            tbody.appendChild(topScorerTr); // Append topScorerTr to tbody
 
-        const topScorerPointsTd = document.createElement('td');
-        topScorerPointsTd.textContent = this.topScorerPoints();
-        topScorerTr.appendChild(topScorerPointsTd);
-        topScorerTr.classList.add(`green-${this.topScorerPoints()}`);
-        tbody.appendChild(topScorerTr); // Append topScorerTr to tbody
+            const firedCoachTr = document.createElement('tr');
+            const firedCoachIdxTd = document.createElement('td');
+            firedCoachIdxTd.textContent = 'Sparkad tränare';
+            firedCoachTr.appendChild(firedCoachIdxTd);
 
-        const firedCoachTr = document.createElement('tr');
-        const firedCoachIdxTd = document.createElement('td');
-        firedCoachIdxTd.textContent = 'Sparkad tränare';
-        firedCoachTr.appendChild(firedCoachIdxTd);
+            const firedCoachTd = document.createElement('td');
+            firedCoachTd.textContent = this.firedCoaches.map(coach => coach.split(' ')[coach.split(' ').length - 1]).join(', ')
+            firedCoachTr.appendChild(firedCoachTd);
 
-        const firedCoachTd = document.createElement('td');
-        firedCoachTd.textContent = this.firedCoach;
-        firedCoachTr.appendChild(firedCoachTd);
-
-        const firedCoachPointsTd = document.createElement('td');
-        firedCoachPointsTd.textContent = this.firedCoachPoints();
-        firedCoachTr.appendChild(firedCoachPointsTd);
-        firedCoachTr.classList.add(`green-${this.firedCoachPoints()}`);
-        tbody.appendChild(firedCoachTr); // Append firedCoachTr to tbody
+            const firedCoachPointsTd = document.createElement('td');
+            firedCoachPointsTd.textContent = this.firedCoachesPoints();
+            firedCoachTr.appendChild(firedCoachPointsTd);
+            firedCoachTr.classList.add(`green-${this.firedCoachesPoints()}`);
+            tbody.appendChild(firedCoachTr); // Append firedCoachTr to tbody
+        }
         
         table.appendChild(tbody); // Append tbody to table
         const totalTr = document.createElement('tr');
@@ -242,7 +246,6 @@ function render() {
     button.textContent = familyOnly ? 'Visa alla' : 'Visa bara familjen';
     button.onclick = () => {
         familyOnly = !familyOnly
-        console.log('click')
         render()
     }
 

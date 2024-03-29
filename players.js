@@ -5,23 +5,23 @@ pc = new Player(
         'Malmö',
         'Djurgården',
         'Häcken',
-        'Hammarby',
         'AIK',
-        'Norrköping',
-        'Mjällby',
         'Elfsborg',
         'Kalmar',
-        'Göteborg',
-        'Värnamo',
-        'Sirius',
-        'Gais',
+        'Mjällby',
+        'Norrköping',
+        'Hammarby',
         'Halmstad',
         'Västerås',
+        'Värnamo',
+        'Sirius',
+        'Göteborg',
         'BP',
+        'Gais',
     ],
-    ["Mackan"],
+    ["Pittas", "Erabi"],
     "Malmö",
-    "Paco"
+    ["Gais", "Hammarby"]
 );
 
 lc = new Player(
@@ -30,50 +30,50 @@ lc = new Player(
     [
         'Malmö',
         'Djurgården',
-        'Häcken',
-        'Hammarby',
-        'AIK',
-        'Norrköping',
         'Elfsborg',
+        'Häcken',
+        'AIK',
+        'Hammarby',
         'Mjällby',
+        'Norrköping',
         'Kalmar',
         'Göteborg',
-        'Värnamo',
-        'Gais',
         'Sirius',
         'Halmstad',
         'Västerås',
+        'Gais',
         'BP',
+        'Värnamo',
     ],
-    ["Isaac Kiese Thelin"],
+    ["Pittas", "Hümmet"],
     "Malmö",
-    "Paco"
+    ["Göteborg", "Hammarby"]
 );
 
 hc = new Player(
     "Håkan",
     "Fam",
     [
-        'Malmö',
         'Djurgården',
+        'Malmö',
         'Häcken',
-        'Hammarby',
-        'AIK',
-        'Norrköping',
         'Elfsborg',
-        'Mjällby',
         'Kalmar',
+        'Hammarby',
+        'Norrköping',
         'Göteborg',
-        'Värnamo',
-        'Sirius',
-        'Gais',
+        'AIK',
+        'Mjällby',
         'Halmstad',
-        'Västerås',
         'BP',
+        'Sirius',
+        'Värnamo',
+        'Gais',
+        'Västerås'
     ],
-    [""],
+    ["Botheim", "Gulliksen"],
     "Malmö",
-    "Paco"
+    ["Värnamo", "Sirius"]
 );
 
 lundh = new Player(
@@ -82,76 +82,50 @@ lundh = new Player(
     [
         'Malmö',
         'Djurgården',
+        'AIK',
+        'Elfsborg',
         'Häcken',
         'Hammarby',
-        'AIK',
-        'Norrköping',
-        'Elfsborg',
-        'Mjällby',
         'Kalmar',
+        'Norrköping',
+        'Mjällby',
         'Göteborg',
-        'Värnamo',
-        'Sirius',
-        'Gais',
         'Halmstad',
+        'Sirius',
         'Västerås',
         'BP',
+        'Värnamo',
+        'Gais',
     ],
     [""],
-    "Malmö",
-    "Paco"
+    "",
+    []
 );
 
-niva = new Player(
-    "Niva",
+media = new Player(
+    "Media",
     "Expert",
     [
         'Malmö',
         'Djurgården',
         'Häcken',
-        'Hammarby',
-        'AIK',
-        'Norrköping',
         'Elfsborg',
-        'Mjällby',
+        'AIK',
+        'Hammarby',
         'Kalmar',
+        'Norrköping',
+        'Mjällby',
         'Göteborg',
-        'Värnamo',
+        'BP',
         'Sirius',
-        'Gais',
+        'Värnamo',
         'Halmstad',
         'Västerås',
-        'BP',
-    ],
-    [""],
-    "Malmö",
-    "Paco"
-);
-
-bank = new Player(
-    "Bank",
-    "Expert",
-    [
-        'Malmö',
-        'Djurgården',
-        'Häcken',
-        'Hammarby',
-        'AIK',
-        'Norrköping',
-        'Elfsborg',
-        'Mjällby',
-        'Kalmar',
-        'Göteborg',
-        'Värnamo',
-        'Sirius',
         'Gais',
-        'Halmstad',
-        'Västerås',
-        'BP',
     ],
-    [""],
-    "Malmö",
-    "Paco"
+    [],
+    "",
+    []
 );
 
 ai = new Player(
@@ -177,7 +151,7 @@ ai = new Player(
     ],
     ["Nahir Besara", "Isaac Kiese Thelin"],
     "Malmö",
-    "Paco"
+    []
 );
 
-const players = [hc, lc, pc, lundh, niva, bank, ai];
+const players = [hc, lc, pc, lundh, media, ai];
