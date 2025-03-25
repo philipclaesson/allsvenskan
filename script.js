@@ -3,6 +3,7 @@ let familyOnly = true
 let halfwayLeader = "none"
 let firedCoach = "none"
 let topScorer = "none"
+let enableExtraPoints = false
 
 class Player {
     constructor(name, type, table, topScorers, halfwayLeader, firedCoaches) {
@@ -83,7 +84,7 @@ class Player {
             tr.classList.add(`green-${rowPoint}`);
             tbody.appendChild(tr); // Append tr to tbody
         }
-        if (familyOnly) {
+        if (familyOnly && enableExtraPoints) {
             const halfwayLeaderTr = document.createElement('tr');
             const halfwayLeaderIdxTd = document.createElement('td');
             halfwayLeaderIdxTd.textContent = 'Ledare halvvägs';
@@ -127,7 +128,7 @@ class Player {
             firedCoachPointsTd.textContent = this.firedCoachesPoints();
             firedCoachTr.appendChild(firedCoachPointsTd);
             firedCoachTr.classList.add(`green-${this.firedCoachesPoints()}`);
-            tbody.appendChild(firedCoachTr); // Append firedCoachTr to tbody
+            tbody.appendChild(firedCoachTr);
         }
         
         table.appendChild(tbody); // Append tbody to table
@@ -216,7 +217,7 @@ async function fetchTable() {
 
 async function fetchTopScorer() {
     // TODO: fetch from https://texttv.nu/351 probably
-    return "Isaac Kiese Thelin"
+    return topScorer
 }
 
 async function main() {
