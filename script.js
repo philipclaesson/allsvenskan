@@ -1,8 +1,8 @@
 let positionByTeam = {}
 let familyOnly = true
-let halfwayLeader = ""
-let firedCoach = ""
-let topScorer = ""
+let halfwayLeader = "none"
+let firedCoach = "none"
+let topScorer = "none"
 
 class Player {
     constructor(name, type, table, topScorers, halfwayLeader, firedCoaches) {
