@@ -1,15 +1,16 @@
 body {
     font-family: 'Roboto Mono', monospace;
-    font-size: calc(2vw);
+    font-size: clamp(14px, 2.5vw, 20px);
     background-color: black;
     color: white;
+    overflow-x: hidden;
 }
 
 
 h1 {
     background-color: blue;
     color: white;
-    font-size: calc(2vw);
+    font-size: clamp(14px, 2.5vw, 20px);
     font-weight: normal;
     padding-left: 10px;
 }
@@ -59,17 +60,23 @@ td {
 
 .ttv-header {
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     padding: 10px;
 }
 
 .ttv-page,
 .ttv-date {
-    padding-right: 2em;
+    padding-right: 1em;
 }
 
 .ttv-name {
     color: yellow;
-    padding-right: 2em;
+    padding-right: 1em;
+}
+
+h2 {
+    margin-top: 1.5em;
 }
 .green-2,
 .green-3 {
